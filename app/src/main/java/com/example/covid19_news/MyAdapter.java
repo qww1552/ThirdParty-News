@@ -1,5 +1,9 @@
 package com.example.covid19_news;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +12,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -21,6 +27,16 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             title = v.findViewById(R.id.title);
             link = v.findViewById(R.id.link);
             pubdate = v.findViewById(R.id.pubdate);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("tag", (String) link.getText());
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    intent.putExtra("url", link.getText());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
