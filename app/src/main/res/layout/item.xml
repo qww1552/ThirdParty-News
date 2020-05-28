@@ -23,12 +23,6 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/link"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
             android:id="@+id/pubdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -19,21 +19,20 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public TextView link;
+        public String link;
         public TextView pubdate;
 
         public MyViewHolder(View v) {
             super(v);
             title = v.findViewById(R.id.title);
-            link = v.findViewById(R.id.link);
+            //link = v.findViewById(R.id.link);
             pubdate = v.findViewById(R.id.pubdate);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("tag", (String) link.getText());
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, WebViewActivity.class);
-                    intent.putExtra("url", link.getText());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+
                     context.startActivity(intent);
                 }
             });
@@ -62,7 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         MyViewHolder myViewHolder = (MyViewHolder)holder;
         myViewHolder.title.setText(item.get(position).getTitle());
-        myViewHolder.link.setText(item.get(position).getLink());
+        myViewHolder.link = (item.get(position).getLink());
         myViewHolder.pubdate.setText(item.get(position).getPubdate());
     }
 
