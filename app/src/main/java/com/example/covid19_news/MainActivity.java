@@ -29,12 +29,8 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-
-
         AsyncCrawl task = new AsyncCrawl();
         task.execute(searchTerm);
-
-
     }
 
     private class AsyncCrawl extends AsyncTask<String, Void, Elements> {
@@ -56,14 +52,12 @@ public class MainActivity extends AppCompatActivity {
             if(elements!=null){
                 for(Element item:elements){
                     String title = item.select("title").text();
-                    String link = item.select("link").text();
+                    String link = item.select("originallink").text();
                     String pubdate=item.select("pubDate").text();
 
                     list.add(new Item(title, link, pubdate));
                 }
             }
-
-
             MyAdapter myAdapter = new MyAdapter(list);
             recyclerView.setAdapter(myAdapter);
         }

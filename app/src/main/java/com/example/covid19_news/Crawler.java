@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
 import java.util.ArrayList;
 
 public class Crawler {
-    public static Elements search(String location) {
+    /*public static Elements search(String location) {
         Document doc=null;
         Elements articles =null;
         String baseUrl = "https://news.google.com/rss/";
@@ -18,7 +18,6 @@ public class Crawler {
                 +location
                 +"&hl=ko&gl=KR&ceid=KR%3Ako";
         try {
-            //doc = Jsoup.connect(baseUrl).data("search", "코로나 + " + location, "hl", "ko", "gl", "KR", "ceid", "KR:ko").get();
             doc = Jsoup.connect(baseUrl+term).get();
             articles = doc.select("item");
 
@@ -27,5 +26,16 @@ public class Crawler {
         }
 
         return articles;
+    }*/
+    public static Elements search(String searchTerm) {
+
+        String string = NaverOpen.NaverNews(searchTerm);
+
+        Document doc = Jsoup.parse(string);
+        Elements items = null;
+
+        items = doc.select("item");
+
+        return items;
     }
 }
