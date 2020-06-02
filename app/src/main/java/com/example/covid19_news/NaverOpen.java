@@ -39,11 +39,22 @@ public class NaverOpen {
             }
             br.close();
 
-            res = response.toString();
-
+            res = filter(response.toString());
         } catch (Exception e) {
             System.out.println(e);
         }
         return res;
+    }
+    public static String filter(String string){
+        //string = string.replace("<b>","");
+       //string = string.replace("</b>","");
+        string = string.replace("&amp;","&");
+        string = string.replace("&quot;","\"");
+        string = string.replace("&apos;","\'");
+        string = string.replace("&nbsp","");
+        string = string.replace("&lt;b&gt;","");//<b> 태그 제거
+        string = string.replace("&lt;/b&gt;","");// </b> 태그 제거
+        //string = string.replace("&gt;",">");
+        return string;
     }
 }

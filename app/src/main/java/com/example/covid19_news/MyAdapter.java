@@ -58,7 +58,6 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
         MyViewHolder myViewHolder = (MyViewHolder)holder;
         myViewHolder.title.setText(item.get(position).getTitle());
         myViewHolder.link = (item.get(position).getLink());
