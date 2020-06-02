@@ -4,11 +4,13 @@ public class Item {
     String title;
     String link;
     String pubdate;
+    String from;
 
-    public Item(String title, String link, String pubdate){
+    public Item(String title, String link, String pubdate,String from){
         this.title = title;
         this.link = link;
         this.pubdate = pubdate;
+        this.from = from;
     }
 
     public String getTitle() {
@@ -33,6 +35,14 @@ public class Item {
 
     public void setPubdate(String pubdate) {
         this.pubdate = pubdate;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getFrom() {
+        return from;
     }
 }
 

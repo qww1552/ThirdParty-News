@@ -21,12 +21,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public TextView title;
         public String link;
         public TextView pubdate;
-
+        public TextView from;
         public MyViewHolder(View v) {
             super(v);
             title = v.findViewById(R.id.title);
-            //link = v.findViewById(R.id.link);
+
             pubdate = v.findViewById(R.id.pubdate);
+            from = v.findViewById(R.id.from);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -62,6 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         myViewHolder.title.setText(item.get(position).getTitle());
         myViewHolder.link = (item.get(position).getLink());
         myViewHolder.pubdate.setText(item.get(position).getPubdate());
+        myViewHolder.from.setText("출처: "+item.get(position).getFrom());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

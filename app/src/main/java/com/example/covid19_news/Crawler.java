@@ -29,12 +29,12 @@ public class Crawler {
     }*/
     public static Elements search(String searchTerm) {
 
-        String string = NaverOpen.NaverNews(searchTerm);
+        String string = NaverOpen.NaverNews(searchTerm);//네이버 뉴스검색 이용해서 검색 결과 받아옴
 
         Document doc = Jsoup.parse(string);
         Elements items = null;
 
-        items = doc.select("item");
+        items = doc.select("item");//검색결과에서 <item>태그 전부 읽어옴
 
         return items;
     }

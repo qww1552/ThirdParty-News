@@ -15,8 +15,9 @@ public class NaverOpen {
         String clientId = " a8_awGUdinNnvnhetbQj";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "p_eikkukyR";//애플리케이션 클라이언트 시크릿값";
         String res="";
+        searchTerm="코로나+"+searchTerm;//검색어에 "코로나" 추가
         try {
-            String text = URLEncoder.encode("코로나+"+searchTerm, "UTF-8"); //검색어";
+            String text = URLEncoder.encode(searchTerm, "UTF-8"); //검색어";
             String apiURL = "https://openapi.naver.com/v1/search/news.xml?query="+ text +"&display=100&sort=sim"; // 뉴스의 xml 결과
 
             URL url = new URL(apiURL);
@@ -39,13 +40,14 @@ public class NaverOpen {
             }
             br.close();
 
-            res = filter(response.toString());
+            res = filter(response.toString());// xml태그가 제거된 검색 결과
+            //Log.d("검색결과",res);
         } catch (Exception e) {
             System.out.println(e);
         }
         return res;
     }
-    public static String filter(String string){
+    public static String filter(String string){//검색 결과에서 xml태그 제거
         //string = string.replace("<b>","");
        //string = string.replace("</b>","");
         string = string.replace("&amp;","&");
