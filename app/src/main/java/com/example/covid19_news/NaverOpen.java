@@ -12,8 +12,8 @@ import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class NaverOpen {
     public static String NaverNews(String searchTerm){
-        String clientId = " a8_awGUdinNnvnhetbQj";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "p_eikkukyR";//애플리케이션 클라이언트 시크릿값";
+        String clientId = //애플리케이션 클라이언트 아이디값";
+        String clientSecret = //애플리케이션 클라이언트 시크릿값";
         String res="";
         searchTerm="코로나+"+searchTerm;//검색어에 "코로나" 추가
         try {
